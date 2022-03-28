@@ -1,40 +1,30 @@
 ﻿
 @{
     ViewData["Title"] = "Detail";
-    Layout = null;
 
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ComicBookGallery</title>
-</head>
-<body>
-    <h1>@ViewBag.SeriesTitles</h1>
-    <h2>Issue #@ViewBag.IssueNumber</h2>
+
+<h1>@ViewBag.SeriesTitles</h1>
+<h2>Issue #@ViewBag.IssueNumber</h2>
 
 
-    <h5>Description:</h5>
-    <div>@Html.Raw(ViewBag.Description)</div>
+<h5>Description:</h5>
+<div>@Html.Raw(ViewBag.Description)</div>
 
-    @if (ViewBag.Artists.Length > 0)
-    {
-        <h5>
-            Artists:
-        </h5>
-        <div>
-            <ul>
-                @foreach (var artist in ViewBag.Artists)
-                {
-                    <li>@artist</li>
-                }
+@if (ViewBag.Artists.Length > 0)
+{
+    <h5>
+        Artists:
+    </h5>
+    <div>
+        <ul>
+            @foreach (var artist in ViewBag.Artists)
+            {
+                <li>@artist</li>
+            }
 
-            </ul>
-        </div>
-    }
+        </ul>
+    </div>
+}
 
-</body>
-</html>

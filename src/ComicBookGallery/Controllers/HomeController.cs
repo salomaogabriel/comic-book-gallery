@@ -11,6 +11,16 @@ namespace ComicBookGallery.Controllers
 {
     public class HomeController : Controller
     {
+
+        public ActionResult Index()
+        {
+            return Detail();
+        }
+        public ActionResult Privacy()
+        {
+            return Detail();
+        }
+
         public ActionResult Detail()
         {
 
@@ -26,7 +36,7 @@ namespace ComicBookGallery.Controllers
                 "Colors: Edgar Delgado",
                 "Letters: Chris Eliopoulos"
             };
-            return View();
+            return View("Detail");
         }
     }
 }
