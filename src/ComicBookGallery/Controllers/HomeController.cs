@@ -11,27 +11,14 @@ namespace ComicBookGallery.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public ActionResult Detail()
         {
-            _logger = logger;
-        }
+            if(DateTime.Today.DayOfWeek == DayOfWeek.Monday)
+            {
+                return Content("Hello from the comic books controller!");
+            }
+            return Redirect("/");
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
