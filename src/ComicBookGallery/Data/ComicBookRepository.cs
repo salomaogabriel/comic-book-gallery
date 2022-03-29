@@ -6,15 +6,15 @@ using ComicBookGallery.Models;
 
 namespace ComicBookGallery.Data
 {
-    public static class ComicBookRepository
+    public class ComicBookRepository
     {
 
-        private static ComicBookModel[] _ComicBooks = new ComicBookModel[]
+        private static ComicBookModel[] _comicBooks = new ComicBookModel[]
         {
 
             new ComicBookModel()
             {
-                Id = 1,
+                Id = 0,
                 SeriesTitle = "The Amazing Spider-Man",
                 IssueNumber = 700,
                 DescriptionHTML = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
@@ -25,14 +25,14 @@ namespace ComicBookGallery.Data
                     new Artist() {Name="Victor Olazaba",Role="Inks"},
                     new Artist() {Name="Edgar Delgado",Role="Colors"},
                     new Artist() {Name="Chris Eliopoulos",Role="Letters"},
-                }
+                },
                 Favorite = false
 
             },
 
             new ComicBookModel()
             {
-                Id = 2,
+                Id = 1,
 
                 SeriesTitle = "The Amazing Spider-Man",
                 IssueNumber = 657,
@@ -50,7 +50,7 @@ namespace ComicBookGallery.Data
 
             new ComicBookModel()
             {
-                Id = 3, 
+                Id = 2, 
                 SeriesTitle = "Bone",
                 IssueNumber = 50,
                 DescriptionHTML = "<p><strong>The Dungeon & The Parapet, Part 1.</strong> Thorn is discovered by Lord Tarsil and the corrupted Stickeaters and thrown into a dungeon with Fone Bone. As she sleeps, a message comes to her about the mysterious \"Crown of Horns\".</p>",
@@ -64,11 +64,11 @@ namespace ComicBookGallery.Data
                 Favorite = false
             }
         };
-        public static ComicBookModel GetComicBook(int id)
+        public ComicBookModel GetComicBook(int id)
         {
             ComicBookModel comicBook = null;
 
-            foreach (var currentComicBook in _ComicBooks)
+            foreach (var currentComicBook in _comicBooks)
             {
                 if(currentComicBook.Id == id)
                 {
@@ -78,6 +78,10 @@ namespace ComicBookGallery.Data
             }
 
             return comicBook;
+        }
+        public ComicBookModel[] GetComicBooks()
+        {
+            return _comicBooks;
         }
     }
 }
