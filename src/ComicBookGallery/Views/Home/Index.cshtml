@@ -1,4 +1,19 @@
-﻿@{
-    ViewData["Title"] = "Index";
+﻿@model ComicBookGallery.Models.ComicBookModel[]
+@{
+    ViewData["Title"] = "Comic Books";
 }
-<h1>@ViewData["Title"]</h1>
+<h2>@ViewData["Title"]</h2>
+
+<div class="row">
+
+    @foreach (var comicbook in Model)
+    {
+        <div class="col-md-3">
+            <h4>@comicbook.DisplayText</h4>
+            <img src="/Images/@comicbook.CoverImageFileName"
+                 alt="@comicbook.DisplayText"
+                 class="img-responsive" />
+        </div>
+}
+    </div>
+
